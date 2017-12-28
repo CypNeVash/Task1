@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/louet/css")
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body id="top">
+    <header class="page-header">
+        <h3>Sites kill your time      <img src="~/Content/icon.png" alt="icon"></h3>
+    </header>
+    <div class="main inline">
+        <div class="content">@RenderBody()</div>
+        <div class="right-block">
+            <ul>
+                <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                <li>@Html.ActionLink("Анкета", "Worksheet", "Home")</li>
+                <li>@Html.ActionLink("Добавить издание", "AddArticle", "Home")</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <h5>
+            &copyCopy-right <a onclick="fun()" id="iakor">top</a>
+        </h5>
+    </footer>
+</body>
+</html>
+

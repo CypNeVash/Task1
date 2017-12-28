@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Анкетирование";
+}
+
+@using Blogs.Model.Assessment;
+
+@model Survey
+
+<h2 style="text-align:center">@ViewBag.Title</h2>
+
+@Styles.Render("~/Anketa/css")
+
+@helper CreateSelect(string name, string questions, List<string> answers, string type)
+{
+    <div class="tab-content">
+        <p>@questions</p>
+        <ul>
+            @foreach (var answer in answers)
+            {
+                <li class="rounded"> <input type=@type name=@name value='@answer'> @answer</li>
+            }
+        </ul>
+    </div>
+}
+<form method="post">
+
+    @{int counter = 1;}
+    @foreach (var qvest in Model.Questions)
+    {
+        @CreateSelect(qvest.Id.ToString(), qvest.Text, qvest.Answers.Select(s => s.Text).ToList().Count > 0 ? qvest.Answers.Select(s => s.Text).ToList() : new List<string> { " " }, qvest.Type.ToString());
+
+        counter++;
+    }
+    <p style="text-align:center"><input type="submit" value="Отправить"></p>
+    }
+</form>

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using Blogs.Model.Article;
+
+@Styles.Render("~/Content/css")
+
+@model IEnumerable<Article>
+
+@foreach (var item in Model)
+{
+<div>
+    <div class="article">
+        <h2>@item.Title</h2>
+        <p>
+            @item.Description
+        </p>
+        <p class="links"> @Html.ActionLink("Read more", "Guests", "Home", new { id = item.Id }, null)</p>
+    </div>
+</div>
+}

@@ -1,0 +1,63 @@
+﻿html, body {
+    background: url("content.jpg") bottom;
+}
+.page-header {
+    background:url("header2.jpg") bottom;
+    position:center;
+    text-align: center;
+    margin:auto;
+    margin-top:-3%;
+}
+
+
+.main {
+    margin: 0 auto; /* Центрируем блоки */
+    width: 100%; /* Задаем ширину 100%, чтобы сделать ее резиновой */
+    max-width: 100%; /* Устанавливаем максимальную ширину */
+    background: url("content.jpg") bottom;
+}
+
+.inline div {
+    display: inline-block; /* Делаем блоки по горизонтали */
+    vertical-align: top; /* Выравниваем их сверху */
+    font-size: 16px; /* Ставим дочкам размер шрифта, иначе примет значение родителя */
+}
+
+div.inline {
+    font-size: 0;
+    
+}
+/* Ставим родителю значение 0, чтобы убрать отступы у блоков*/
+.content {
+    width: 80%;
+}
+
+.right-block {
+    width: 20%;
+    background: url("content.jpg") bottom;
+}
+
+footer {
+    background: url("content.jpg") bottom;
+}
+
+.right-block ul {
+    list-style: none;
+    text-decoration: wavy;
+    background-color:#ff0000;
+    text-align:center;
+}
+
+.right-block li {
+    background-color: rgba(9, 54, 148, 0.51);
+    border:inset;
+    padding:50%;
+    border-bottom-color:#ff0000;
+    margin:0 -20%;
+}
+
+img
+{
+    height:10%;
+    width:10%;
+}

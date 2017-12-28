@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Add article";
+}
+
+@Styles.Render("~/Anketa/css")
+
+@using Blogs.Validation.Article
+@model Article
+
+<div class="addArticle">
+@using (Html.BeginForm())
+{
+    <h2>Add article</h2>
+    <p> Author</p>
+    <p> @Html.EditorFor(s=>s.Author)</p>
+    <p> Title</p>
+    <p> @Html.EditorFor(s => s.Title)</p>
+    <p> Description</p>
+    <p> @Html.EditorFor(s => s.Description)</p>
+    <p> Text</p>
+    <p> @Html.TextAreaFor(s => s.Text)</p>
+    <p> <input type="submit" name="sub" value="Sent"></p>
+}
+</div>

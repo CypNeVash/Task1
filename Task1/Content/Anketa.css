@@ -1,0 +1,36 @@
+﻿.rounded {
+    counter-reset: li;
+    list-style: inside;
+    font: 14px "Trebuchet MS", "Lucida Sans";
+    padding: 0;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+    .rounded  {
+        display: block;
+        padding: .4em .4em .4em 2em;
+        margin: .5em 0;
+        background: #ff6a00;
+        color: #ffd800;
+        text-decoration: none;
+        border-radius: .3em;
+        transition: .3s ease-out;
+    }
+
+.tab-content {
+    background-color: #ff6a00;
+    border-style:outset;
+    padding:5em;
+    width:100%;
+    text-align:center;
+}
+
+body
+{
+
+}
+.addArticle {
+    background: url("header.jpg") bottom;
+    text-align: center;
+    width:100%;
+}

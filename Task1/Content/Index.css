@@ -1,0 +1,22 @@
+﻿body {
+}
+
+.article
+{
+    border-style:inset;
+    border: 5px,inset,red;
+    background-color:#808080;
+}
+
+    .article:hover {
+        background-color:rgba(183, 39, 39, 0.26);
+    }
+
+p{
+    text-align:center;
+}
+
+h2
+{
+    text-align:center;
+}

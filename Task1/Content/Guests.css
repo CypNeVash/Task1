@@ -1,0 +1,33 @@
+﻿body {
+
+}
+
+h2
+{
+    text-align:center;
+}
+
+.title{
+    
+}
+.Comments{
+    border-style:ridge;
+    width:100%;
+    border-width:1em;
+
+    background-color:#ff0000;
+}
+
+.Comment {
+    border-style: inset;
+    width: 100%;
+    border-width: 1em;
+    background-color: #ff6a00;
+}
+
+.formS {
+    width: 100%;
+    text-align: center;
+    font: x-large;
+    font-family: 'Times New Roman', Times, serif;
+}

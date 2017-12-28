@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Analyzer";
+}
+
+<h2>Analyzer</h2>
+
+@using System.Collections.Generic;
+@using Blogs.Model.Assessment
+
+@model List<AssessmentAnswer>
+
+@foreach (var assessmentAnswer in Model)
+{
+    <p>Questions :</p>
+    <p>@assessmentAnswer.Question.Text</p>
+    <p>Answers : </p>
+    foreach (var answer in assessmentAnswer.Answers)
+    {
+        <p>@answer.Text</p>
+    }
+}

@@ -1,0 +1,41 @@
+﻿@using Blogs.Model.Article;
+
+@model Article
+
+@{
+    ViewBag.Title = Model.Title;
+    Blogs.Validation.Article.Review review = new Blogs.Validation.Article.Review();
+}
+@Styles.Render("~/Guests/css")
+
+<div class="articles">
+    <h2>@ViewBag.Title</h2>
+    <h6>Автор: @Model.Author</h6>
+    <h6>Время: @Model.PublishDate</h6>
+    <h3 class="Text">@Model.Text</h3>
+</div>
+
+
+
+<div class="Comments">
+    <p>Отзывы:</p>
+    @foreach (var item in Model.Reviews)
+    {
+        <div class="Comment">
+            <p class="title">@item.Author @Model.PublishDate.ToLongDateString()</p>
+
+            <p class="body">@item.Text</p>
+        </div>
+    }
+</div>
+
+<div method="post" class="formS">
+    @using (@Html.BeginForm())
+    {
+        <p> Author</p>
+        <p> @Html.TextBoxFor(s=>review.Author)</p>
+        <p> Отзыв</p>
+        <p>@Html.TextAreaFor(s=>review.Text)</p>
+        <p><input type="submit" value="Send"></p>
+    }
+</div>
