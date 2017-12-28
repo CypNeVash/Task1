@@ -32,10 +32,12 @@
 <div method="post" class="formS">
     @using (@Html.BeginForm())
     {
-        <p> Author</p>
-        <p> @Html.TextBoxFor(s=>review.Author)</p>
-        <p> Отзыв</p>
-        <p>@Html.TextAreaFor(s=>review.Text)</p>
-        <p><input type="submit" value="Send"></p>
+            <p> Author</p>
+            <p> @Html.TextBoxFor(s => review.Author) </p>
+            <p>@Html.ValidationMessageFor(s => review.Author)</p>
+            <p> Отзыв</p>
+            <p>@Html.TextAreaFor(s => review.Text)</p>
+            <p>@Html.ValidationMessageFor(s => review.Text)</p>
+            <p><input type="submit" value="Send"></p>
     }
 </div>

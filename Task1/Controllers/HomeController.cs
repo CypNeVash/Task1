@@ -66,10 +66,12 @@ namespace Task1.Controllers
 
                 if (Request.HttpMethod == "POST")
                 {
-                    article.Reviews.Add(new Review(review));
+                    if (ModelState.IsValid)
+                    {
+                        article.Reviews.Add(new Review(review));
+                        articleRepository.Save();
+                    }
                 }
-
-                articleRepository.Save();
             }
             return View(article);
         }
@@ -83,7 +85,8 @@ namespace Task1.Controllers
 
             if (Request.HttpMethod == "POST")
             {
-                new ArticleRepository().Add(new Article(article));
+                if (ModelState.IsValid)
+                    new ArticleRepository().Add(new Article(article));
             }
 
             return View();
