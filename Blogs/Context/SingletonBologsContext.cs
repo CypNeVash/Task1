@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Blogs.Context
 {
-    sealed class SingletonBologsContext
+    public sealed class SingletonBologsContext
     {
         private static BlogsContext blogsContext;
 

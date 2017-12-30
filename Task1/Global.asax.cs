@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Blogs.Context;
 
 namespace Task1
 {
@@ -16,6 +17,10 @@ namespace Task1
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+        protected void Application_EndRequest( object sender, EventArgs e)
+        {
+            SingletonBologsContext.InstanceBlogsContext().Dispose();
         }
     }
 }

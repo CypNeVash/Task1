@@ -26,8 +26,6 @@ namespace Blogs.Repository.Implement.Assessment
                 }
                 );
 
-            Dispose();
-
             return surveys;
         }
 
@@ -48,8 +46,6 @@ namespace Blogs.Repository.Implement.Assessment
             blogsContext.Survey.Add(data);
 
             Save();
-
-            Dispose();
         }
     }
 }

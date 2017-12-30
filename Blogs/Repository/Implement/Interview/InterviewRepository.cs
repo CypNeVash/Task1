@@ -13,7 +13,7 @@ namespace Blogs.Repository.Implement.Interview
 
         public void AddAnswer(Guid interview, Guid option)
         {
-            var select = Get().Where(s => s.Id == interview).Select(s=>s.Options.Where(opt => opt.Id == option).FirstOrDefault()).ToList().FirstOrDefault();
+            var select = Get(interview).Options.Where(opt => opt.Id == option).FirstOrDefault();
 
             select.Count += 1;
 
