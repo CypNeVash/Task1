@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using Blogs.Repository.Interface.Assessment;
-using Blogs.Context;
 using System.Linq;
-using System.Data.Entity.Infrastructure;
-using Blogs.Model.Assessment;
-using Blogs.Repository.Interface;
 
 namespace Blogs.Repository.Implement.Assessment
 {
     /// <summary>
     /// Repository of Assessment, which communicate with database and give data
     /// </summary>
-    public class AssessmentRepository : DefaulRepository, IAssessmentRepository
+    public class AssessmentRepository : DefaulRepository<Model.Assessment.Assessment>
     {
         /// <summary>
         /// Method to get all Assessment from database
         /// </summary>
-        public IEnumerable<Model.Assessment.Assessment> Get()
+        public override IEnumerable<Model.Assessment.Assessment> Get()
         {
             List<Model.Assessment.Assessment> assessments = blogsContext.Assessments.ToList();
             assessments.ForEach(
@@ -42,27 +37,15 @@ namespace Blogs.Repository.Implement.Assessment
         /// <summary>
         /// Method to get all Assessments from database by id
         /// </summary>
-        public Model.Assessment.Assessment Get(Guid id)
+        public override Model.Assessment.Assessment Get(Guid id)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Method to remove Assessment from database by link
-        /// </summary>
-        public void Remove(Model.Assessment.Assessment data)
-        {
-            blogsContext.Assessments.Remove(data);
-
-            Save();
-
-            Dispose();
-        }
-
-        /// <summary>
         /// Method to add Assessment to database by link
         /// </summary>
-        public void Add(Model.Assessment.Assessment data)
+        public override void Add(Model.Assessment.Assessment data)
         {
             blogsContext.Entry(data.Survey).State = System.Data.Entity.EntityState.Modified;
             blogsContext.Entry(data.User).State = System.Data.Entity.EntityState.Modified;
@@ -70,8 +53,7 @@ namespace Blogs.Repository.Implement.Assessment
             blogsContext.Assessments.Add(data);
 
             Save();
-
-            Dispose();
         }
+
     }
 }

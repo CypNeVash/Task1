@@ -1,12 +1,18 @@
 ﻿html, body {
-    background: url("content.jpg") bottom;
+    margin: 0 auto;
+    width: 80%;
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top, #1e5799 0%, #194da0 25%, #2586ed 60%, #2b9ee5 76%, #7db9e8 90%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#194da0 25%,#2586ed 60%,#2b9ee5 76%,#7db9e8 90%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 0%,#194da0 25%,#2586ed 60%,#2b9ee5 76%,#7db9e8 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 }
 .page-header {
-    background:url("header2.jpg") bottom;
-    position:center;
+    position: center;
     text-align: center;
-    margin:auto;
-    margin-top:-3%;
+    margin: auto;
+    margin-top: -3%;
+
 }
 
 
@@ -14,7 +20,7 @@
     margin: 0 auto; /* Центрируем блоки */
     width: 100%; /* Задаем ширину 100%, чтобы сделать ее резиновой */
     max-width: 100%; /* Устанавливаем максимальную ширину */
-    background: url("content.jpg") bottom;
+
 }
 
 .inline div {
@@ -38,7 +44,6 @@ div.inline {
 }
 
 footer {
-    background: url("content.jpg") bottom;
 }
 
 .right-block ul {

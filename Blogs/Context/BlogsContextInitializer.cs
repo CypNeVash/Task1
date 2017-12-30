@@ -53,6 +53,13 @@ namespace Blogs.Context
 
             _context.Users.Add(new User("Parviz", "Musaiev"));
 
+            _context.Interviews.Add(new Blogs.Model.Interview.Interview("Where you from",
+                new List<Blogs.Model.Interview.Option>() {
+                    new Model.Interview.Option("Germany"),
+                    new Model.Interview.Option("Ukrain"),
+                    new Model.Interview.Option("France")
+                }));
+
             _context.SaveChanges();
         }
     }

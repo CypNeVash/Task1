@@ -5,17 +5,23 @@ using Blogs.Repository.Implement.Article;
 using Blogs.Model.Article;
 using Blogs.Model.Assessment;
 using Blogs.Repository.Implement.Assessment;
+using Blogs.Repository.Interface;
+using Blogs.Repository.Implement;
 
 namespace Task1.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDefaultRepository<Article> _articleRepository = FactoryRepository.GetRepository<Article>();
+        private readonly IDefaultRepository<User> _userRepository = FactoryRepository.GetRepository<User>();
+        private readonly IDefaultRepository<Assessment> _assessmentRepository = FactoryRepository.GetRepository<Assessment>();
+        private readonly IDefaultRepository<Survey> _surveyRepository = FactoryRepository.GetRepository<Survey>();
         /// <summary>
         ///     Default pages
         ///</summary>
         public ActionResult Index()
         {
-            return View(new ArticleRepository().Get());
+            return View(_articleRepository.Get());
         }
 
         /// <summary>
@@ -24,22 +30,25 @@ namespace Task1.Controllers
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult Worksheet()
         {
-            Survey survey = new SurveyRepository().Get().First();
+            Survey survey = _surveyRepository.Get().First();
 
             if (Request.HttpMethod == "POST")
             {
-                Assessment ass = new Assessment(survey, new UserRepository().Get().FirstOrDefault());
+                User user = _userRepository.Get().FirstOrDefault();
+
+                Assessment ass = new Assessment(survey, user);
 
                 var iter = ass.Survey.Questions.GetEnumerator();
 
                 while (iter.MoveNext())
                 {
                     var type = Request.Form[iter.Current.Id.ToString()];
+                    AssessmentAnswer assessmentAnswer = new AssessmentAnswer(iter.Current, type.Split(',').Select(s => new Answer(s)).ToList());
 
-                    ass.Answers.Add(new AssessmentAnswer(iter.Current, type.Split(',').Select(s => new Answer(s)).ToList()));
+                    ass.Answers.Add(assessmentAnswer);
                 }
 
-                new AssessmentRepository().Add(ass);
+                _assessmentRepository.Add(ass);
 
                 return View("Analyzer", ass.Answers);
             }
@@ -55,22 +64,18 @@ namespace Task1.Controllers
         {
             Article article;
 
-            using (ArticleRepository articleRepository = new ArticleRepository())
+            string[] strs = Request.FilePath.Split('/');
+
+            Guid id = new Guid(strs[strs.Length - 1]);
+
+            article = _articleRepository.Get(id);
+
+            if (Request.HttpMethod == "POST")
             {
-
-                string[] strs = Request.FilePath.Split('/');
-
-                Guid id = new Guid(strs[strs.Length - 1]);
-
-                article = articleRepository.Get(id);
-
-                if (Request.HttpMethod == "POST")
+                if (ModelState.IsValid)
                 {
-                    if (ModelState.IsValid)
-                    {
-                        article.Reviews.Add(new Review(review));
-                        articleRepository.Save();
-                    }
+                    article.Reviews.Add(new Review(review));
+                    _articleRepository.Save();
                 }
             }
             return View(article);
@@ -86,7 +91,7 @@ namespace Task1.Controllers
             if (Request.HttpMethod == "POST")
             {
                 if (ModelState.IsValid)
-                    new ArticleRepository().Add(new Article(article));
+                    _articleRepository.Add(new Article(article));
             }
 
             return View();

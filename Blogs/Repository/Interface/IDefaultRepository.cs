@@ -15,5 +15,7 @@ namespace Blogs.Repository.Interface
         void Remove(T data);
 
         T Get(Guid id);
+
+        void Save();
     }
 }

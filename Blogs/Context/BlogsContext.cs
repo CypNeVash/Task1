@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using Blogs.Model.Article;
 using Blogs.Model.Assessment;
+using Blogs.Model.Interview;
 
 namespace Blogs.Context
 {
@@ -18,5 +19,6 @@ namespace Blogs.Context
         public DbSet<Assessment> Assessments { get; set; }
         public DbSet<Article> Articles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Interview> Interviews { get; set; }
     }
 }
