@@ -4,7 +4,7 @@ using Blogs.Model.Assessment;
 
 namespace Blogs.Repository.Implement.Assessment
 {
-    public class UserRepository : DefaulRepository<User>
+    public class UserRepository : DefaultRepository<User>
     {
         /// <summary>
         /// Method to add User to database by link

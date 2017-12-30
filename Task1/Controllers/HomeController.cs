@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using Blogs.Repository.Implement.Article;
 using Blogs.Model.Article;
 using Blogs.Model.Assessment;
-using Blogs.Repository.Implement.Assessment;
 using Blogs.Repository.Interface;
 using Blogs.Repository.Implement;
+using Blogs.Model.Interview;
 
 namespace Task1.Controllers
 {
@@ -16,9 +15,11 @@ namespace Task1.Controllers
         private readonly IDefaultRepository<User> _userRepository = FactoryRepository.GetRepository<User>();
         private readonly IDefaultRepository<Assessment> _assessmentRepository = FactoryRepository.GetRepository<Assessment>();
         private readonly IDefaultRepository<Survey> _surveyRepository = FactoryRepository.GetRepository<Survey>();
+        private readonly IDefaultRepository<Interview> _interviewRepository = FactoryRepository.GetRepository<Interview>();
         /// <summary>
         ///     Default pages
         ///</summary>
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult Index()
         {
             return View(_articleRepository.Get());

@@ -8,7 +8,7 @@ namespace Blogs.Repository.Implement.Assessment
     /// <summary>
     /// Repository of Survey, which communicate with database and give data
     /// </summary>
-    public class SurveyRepository : DefaulRepository<Survey>
+    public class SurveyRepository : DefaultRepository<Survey>
     {
         /// <summary>
         /// Method to get all Surveys from database

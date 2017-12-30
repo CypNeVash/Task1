@@ -7,7 +7,7 @@ namespace Blogs.Repository.Implement.Article
     /// <summary>
     /// Repository of articles, which communicate with database and give data
     /// </summary>
-    public class ArticleRepository : DefaulRepository<Model.Article.Article>
+    public class ArticleRepository : DefaultRepository<Model.Article.Article>
     {
         /// <summary>
         /// Method to get all articles from database

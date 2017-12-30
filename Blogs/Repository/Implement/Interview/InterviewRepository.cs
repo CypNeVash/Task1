@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Blogs.Repository.Implement.Interview
 {
-    public class InterviewRepository : DefaulRepository<Model.Interview.Interview>
+    public class InterviewRepository : DefaultRepository<Model.Interview.Interview>
     {
         public override void Add(Model.Interview.Interview data)
         {

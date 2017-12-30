@@ -9,12 +9,12 @@ namespace Blogs.Repository.Implement
     /// <summary>
     /// abstract repository, which contain base set for repository
     /// </summary>
-    public abstract class DefaulRepository<T> : IDisposable, IDefaultRepository<T>
+    public abstract class DefaultRepository<T> : IDisposable, IDefaultRepository<T>
     {
         protected BlogsContext blogsContext = SingletonBologsContext.InstanceBlogsContext();
 
 
-        protected DefaulRepository()
+        protected DefaultRepository()
         {
 
         }

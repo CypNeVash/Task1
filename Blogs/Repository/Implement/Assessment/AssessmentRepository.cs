@@ -7,7 +7,7 @@ namespace Blogs.Repository.Implement.Assessment
     /// <summary>
     /// Repository of Assessment, which communicate with database and give data
     /// </summary>
-    public class AssessmentRepository : DefaulRepository<Model.Assessment.Assessment>
+    public class AssessmentRepository : DefaultRepository<Model.Assessment.Assessment>
     {
         /// <summary>
         /// Method to get all Assessment from database
