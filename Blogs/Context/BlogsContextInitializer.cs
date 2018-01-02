@@ -1,4 +1,5 @@
-﻿using Blogs.Model.Assessment;
+﻿using Blogs.Model.Article;
+using Blogs.Model.Assessment;
 using System.Collections.Generic;
 using System.Data.Entity;
 
@@ -49,7 +50,10 @@ namespace Blogs.Context
                 , new List<Answer>(){}
                 , QuestionsType.text)
             }));
-            _context.Articles.Add(new Model.Article.Article("Dogs", "Parviz","Save Dogs", "Gues let save dogs, don`t buy hotdogs"));
+            _context.Articles.Add(
+                new Model.Article.Article("Dogs", "Parviz","Save Dogs", "Gues let save dogs, don`t buy hotdogs"
+                , new List<Keyword>() { new Keyword("Save"), new Keyword("Dogs"), new Keyword("World") })
+                );
 
             _context.Users.Add(new User("Parviz", "Musaiev"));
 

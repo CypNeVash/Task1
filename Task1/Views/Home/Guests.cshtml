@@ -4,7 +4,7 @@
 
 @{
     ViewBag.Title = Model.Title;
-    Blogs.Validation.Article.Review review = new Blogs.Validation.Article.Review();
+    Task1.Models.Validation.Article.Review review = new Task1.Models.Validation.Article.Review();
 }
 @Styles.Render("~/Guests/css")
 
@@ -13,6 +13,12 @@
     <h6>Автор: @Model.Author</h6>
     <h6>Время: @Model.PublishDate</h6>
     <h3 class="Text">@Model.Text</h3>
+    <h6>
+        @foreach (var item in Model.Keywords)
+        {
+            @Html.ActionLink(@item.Text + " ", "Search", "Home", new { id = item.Id }, null)
+        }
+    </h6>
 </div>
 
 

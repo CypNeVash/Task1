@@ -40,7 +40,6 @@ div.inline {
 
 .right-block {
     width: 20%;
-    background: url("content.jpg") bottom;
 }
 
 footer {
@@ -57,7 +56,6 @@ footer {
     background-color: rgba(9, 54, 148, 0.51);
     border:inset;
     padding:50%;
-    border-bottom-color:#ff0000;
     margin:0 -20%;
 }
 
@@ -93,4 +91,33 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-   
+
+.Questionnaire {
+    border: 0.5em solid rgba(31, 239, 15, 0.73);
+    border-bottom-left-radius: 2em;
+    border-top-right-radius: 3em;
+    background-color:#ffd800;
+}
+progress {
+    background-color: #ff0000;
+    border: 0;
+    border-radius: 1.3em;
+    color:rgb(0, 255, 33);
+    position:center;
+    width:100%;
+}
+
+textarea
+{
+    width:80%;
+    height:8em;
+}
+
+.Statistics {
+    width:100%;
+    background: #e7ed80; /* Old browsers */
+    background: -moz-linear-gradient(top, #e7ed80 13%, #e7ed80 13%, #31d829 33%, #e7ed80 64%, #49d32a 89%, #23db4e 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #e7ed80 13%,#e7ed80 13%,#31d829 33%,#e7ed80 64%,#49d32a 89%,#23db4e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #e7ed80 13%,#e7ed80 13%,#31d829 33%,#e7ed80 64%,#49d32a 89%,#23db4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7ed80', endColorstr='#23db4e',GradientType=0 ); /* IE6-9 */
+}

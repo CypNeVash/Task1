@@ -21,6 +21,41 @@
                 <li>@Html.ActionLink("Анкета", "Worksheet", "Home")</li>
                 <li>@Html.ActionLink("Добавить издание", "AddArticle", "Home")</li>
             </ul>
+
+
+            @if (ViewData["Questionnaire"] != null)
+            {
+                <form class="Questionnaire" method="post">
+                    @{Blogs.Model.Interview.Interview interview = (Blogs.Model.Interview.Interview)ViewData["Questionnaire"];}
+                    <p>@interview.Title</p>
+                    <table>
+                        @foreach (var item in interview.Options)
+                        {
+                            <tr>
+                                <td><input type="radio" name="option" value="@item.Id"> @item.Text</td>
+                            </tr>
+                        }
+                    </table>
+                    <p><input type="submit" name="submit" value="select"></p>
+                </form>
+                        }
+            @if (ViewData["Statistics"] != null)
+            {
+                <div class="Statistics">
+                    @{Task1.Models.Validation.Interview.Interview interview = (Task1.Models.Validation.Interview.Interview)ViewData["Statistics"];}
+                    <p>@interview.Title</p>
+                    <table>
+                        @foreach (var item in interview.Options)
+                        {
+                            <tr>
+                                <td>@item.Text @item.Percent%<progress value=@item.Percent.ToString() max="100"></progress></td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                        }
+
+
         </div>
     </div>
 
@@ -31,4 +66,3 @@
     </footer>
 </body>
 </html>
-

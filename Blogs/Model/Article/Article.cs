@@ -14,22 +14,18 @@ namespace Blogs.Model.Article
         public string Text { get; set; }
         public string Description { get; set; }
         public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public ICollection<Keyword> Keywords { get; set; }
+
+        public string Preview { get { return Text.Length > 200 ? Text.Substring(0, 200) : Text; } }
 
         public Article() { }
-        public Article(string title, string author, string description, string text)
+        public Article(string title, string author, string description, string text, ICollection<Keyword> keywords)
         {
             Title = title;
             Author = author;
             Text = text;
             Description = description;
-        }
-
-        public Article(Validation.Article.Article article)
-        {
-            Title = article.Title;
-            Author = article.Author;
-            Text = article.Text;
-            Description = article.Description;
+            Keywords = keywords;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Blogs.Repository.Implement
                 case Model.Assessment.User user: return (IDefaultRepository<T>)new UserRepository();
                 case Model.Assessment.Survey survey: return (IDefaultRepository<T>)new SurveyRepository();
                 case Model.Interview.Interview interview: return (IDefaultRepository<T>)new InterviewRepository();
+                case Model.Article.Keyword keyword: return (IDefaultRepository<T>)new KeywordRepository();
             }
 
             throw new NotImplementedException();

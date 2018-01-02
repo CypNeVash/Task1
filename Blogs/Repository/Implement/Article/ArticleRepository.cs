@@ -17,6 +17,7 @@ namespace Blogs.Repository.Implement.Article
             List<Model.Article.Article> articles = blogsContext.Articles.ToList();
 
             articles.ForEach(article => blogsContext.Entry(article).Collection(item => item.Reviews).Load());
+            articles.ForEach(article => blogsContext.Entry(article).Collection(item => item.Keywords).Load());
 
             return articles;
         }
@@ -29,6 +30,7 @@ namespace Blogs.Repository.Implement.Article
             Model.Article.Article article = blogsContext.Articles.ToList().Where(s => s.Id == id).FirstOrDefault();
 
             blogsContext.Entry(article).Collection(item => item.Reviews).Load();
+            blogsContext.Entry(article).Collection(item => item.Keywords).Load();
 
             return article;
         }

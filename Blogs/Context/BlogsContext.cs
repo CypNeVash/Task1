@@ -20,5 +20,6 @@ namespace Blogs.Context
         public DbSet<Article> Articles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Interview> Interviews { get; set; }
+        public DbSet<Keyword> Keywords { get; set; }
     }
 }

@@ -6,6 +6,7 @@
     border-style:inset;
     border: 5px,inset,red;
     background-color:#808080;
+    width:100%;
 }
 
     .article:hover {

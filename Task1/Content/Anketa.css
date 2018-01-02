@@ -30,7 +30,11 @@ body
 
 }
 .addArticle {
-    background: url("header.jpg") bottom;
+    background: #e7ed80; /* Old browsers */
+    background: -moz-linear-gradient(top, #e7ed80 13%, #e7ed80 13%, #31d829 33%, #e7ed80 64%, #49d32a 89%, #23db4e 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #e7ed80 13%,#e7ed80 13%,#31d829 33%,#e7ed80 64%,#49d32a 89%,#23db4e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #e7ed80 13%,#e7ed80 13%,#31d829 33%,#e7ed80 64%,#49d32a 89%,#23db4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7ed80', endColorstr='#23db4e',GradientType=0 ); /* IE6-9 */
     text-align: center;
-    width:100%;
+    width: 100%;
 }

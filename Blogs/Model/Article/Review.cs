@@ -18,11 +18,5 @@ namespace Blogs.Model.Article
             Author = author;
             Text = text;
         }
-
-        public Review(Blogs.Validation.Article.Review review)
-        {
-            Author = review.Author;
-            Text = review.Text;
-        }
     }
 }

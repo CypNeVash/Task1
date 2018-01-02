@@ -6,22 +6,34 @@ using Blogs.Model.Assessment;
 using Blogs.Repository.Interface;
 using Blogs.Repository.Implement;
 using Blogs.Model.Interview;
+using Task1.Models.Validation.Article;
 
 namespace Task1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IDefaultRepository<Article> _articleRepository = FactoryRepository.GetRepository<Article>();
+        private readonly IDefaultRepository<Blogs.Model.Article.Article> _articleRepository = FactoryRepository.GetRepository<Blogs.Model.Article.Article>();
         private readonly IDefaultRepository<User> _userRepository = FactoryRepository.GetRepository<User>();
         private readonly IDefaultRepository<Assessment> _assessmentRepository = FactoryRepository.GetRepository<Assessment>();
         private readonly IDefaultRepository<Survey> _surveyRepository = FactoryRepository.GetRepository<Survey>();
+        private readonly IDefaultRepository<Keyword> _keywordRepository = FactoryRepository.GetRepository<Keyword>();
         private readonly IDefaultRepository<Interview> _interviewRepository = FactoryRepository.GetRepository<Interview>();
         /// <summary>
         ///     Default pages
         ///</summary>
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        public ActionResult Index()
+        public ActionResult Index(string option)
         {
+            var interview = _interviewRepository.Get().FirstOrDefault();
+            if (Request.HttpMethod == "POST")
+            {
+                interview.Options.Where(s => s.Id == new Guid(option)).FirstOrDefault().Count++;
+                ViewData["Statistics"] =new Task1.Models.Validation.Interview.Interview( interview);
+            }
+            else
+            {
+                ViewData["Questionnaire"] = interview;
+            }
             return View(_articleRepository.Get());
         }
 
@@ -61,9 +73,9 @@ namespace Task1.Controllers
         ///     Page for review some article
         ///</summary>
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        public ActionResult Guests(Blogs.Validation.Article.Review review)
+        public ActionResult Guests(Models.Validation.Article.Review review)
         {
-            Article article;
+            Blogs.Model.Article.Article article;
 
             string[] strs = Request.FilePath.Split('/');
 
@@ -75,8 +87,8 @@ namespace Task1.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    article.Reviews.Add(new Review(review));
-                    _articleRepository.Save();
+
+                    article.Reviews.Add(new Blogs.Model.Article.Review().AddReview(review));
                 }
             }
             return View(article);
@@ -86,16 +98,34 @@ namespace Task1.Controllers
         ///     Page for add article
         ///</summary>
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        public ActionResult AddArticle(Blogs.Validation.Article.Article article)
+        public ActionResult AddArticle(Task1.Models.Validation.Article.Article article, string tags)
         {
-
             if (Request.HttpMethod == "POST")
             {
                 if (ModelState.IsValid)
-                    _articleRepository.Add(new Article(article));
+                {
+                    foreach (var i in tags.Split(' '))
+                        article.Keywords.Add(_keywordRepository.Get().Where(s => s.Text == i).FirstOrDefault() ?? new Keyword(i));
+                    _articleRepository.Add(new Blogs.Model.Article.Article().AddArticle(article));
+                }
             }
 
             return View();
+        }
+
+        /// <summary>
+        ///     Page for searches
+        ///</summary>
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        public ActionResult Search()
+        {
+            string[] strs = Request.FilePath.Split('/');
+
+            Guid id = new Guid(strs[strs.Length - 1]);
+
+            var keys = _keywordRepository.Get(id);
+
+            return View(keys);
         }
     }
 }
