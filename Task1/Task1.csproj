@@ -150,7 +150,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddArticleController.cs" />
+    <Compile Include="Controllers\GuestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WorksheetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,7 +178,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Guests.css" />
     <Content Include="Content\Index.css" />
-    <Content Include="Content\louet.css" />
+    <Content Include="Content\Layout.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <None Include="Resources\IconSites.ico" />
@@ -210,12 +213,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Worksheet.cshtml" />
-    <Content Include="Views\Home\Guests.cshtml" />
+    <Content Include="Views\Worksheet\Index.cshtml" />
+    <Content Include="Views\Guests\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\AddArticle.cshtml" />
-    <Content Include="Views\Home\Analyzer.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\AddArticle\Index.cshtml" />
+    <Content Include="Views\Worksheet\Analyzer.cshtml" />
+    <Content Include="Views\Guests\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

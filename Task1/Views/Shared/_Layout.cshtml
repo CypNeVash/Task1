@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/louet/css")
+    @Styles.Render("~/Layout/css")
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
@@ -18,8 +18,8 @@
         <div class="right-block">
             <ul>
                 <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-                <li>@Html.ActionLink("Анкета", "Worksheet", "Home")</li>
-                <li>@Html.ActionLink("Добавить издание", "AddArticle", "Home")</li>
+                <li>@Html.ActionLink("Анкета", "Index", "Worksheet")</li>
+                <li>@Html.ActionLink("Добавить издание", "Index", "AddArticle")</li>
             </ul>
 
 

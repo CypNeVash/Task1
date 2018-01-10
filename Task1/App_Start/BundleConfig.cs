@@ -33,11 +33,11 @@ namespace Task1
             bundles.Add(new StyleBundle("~/Anketa/css").Include(
                 "~/Content/Anketa.css"));
 
-            bundles.Add(new StyleBundle("~/louet/css").Include(
+            bundles.Add(new StyleBundle("~/Layout/css").Include(
                 "~/Content/bootstrap.min.css",
                  "~/Scripts/bootstrap.js",
                 "~/Content/bootstrap.css",
-                "~/Content/louet.css"));
+                "~/Content/Layout.css"));
 
         }
     }

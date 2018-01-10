@@ -16,7 +16,7 @@
     <h6>
         @foreach (var item in Model.Keywords)
         {
-            @Html.ActionLink(@item.Text + " ", "Search", "Home", new { id = item.Id }, null)
+            @Html.ActionLink(@item.Text + " ", "Search", "Guests", new { id = item.Id }, null)
         }
     </h6>
 </div>
