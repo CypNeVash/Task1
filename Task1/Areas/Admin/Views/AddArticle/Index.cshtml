@@ -1,0 +1,40 @@
+﻿@using Task1.Models.Validation.Article
+
+@{
+    ViewBag.Title = "Add article";
+    Article article = new Article();
+}
+
+@model List<Blogs.Model.Article.Keyword>
+
+@Styles.Render("~/Anketa/css")
+
+<div class="addArticle">
+    @using (Html.BeginForm())
+    {
+        <h2>Add article</h2>
+        <p> Author</p>
+        <p> @Html.EditorFor(s => article.Author)</p>
+        <p>@Html.ValidationMessageFor(s => article.Author)</p>
+        <p> Title</p>
+        <p> @Html.EditorFor(s => article.Title)</p>
+        <p>@Html.ValidationMessageFor(s => article.Title)</p>
+        <p> Description</p>
+        <p> @Html.EditorFor(s => article.Description)</p>
+        <p>@Html.ValidationMessageFor(s => article.Description)</p>
+        <p> Text</p>
+        <p> @Html.TextAreaFor(s => article.Text)</p>
+        <p>@Html.ValidationMessageFor(s => article.Text)</p>
+        <p>Select tags or create new tags</p>
+        <select name="ctags"  multiple>
+            @foreach (var item in Model)
+            {
+                <option value=@item.Text>@item.Text</option>
+            }
+        </select>
+
+        <p> Tags (через пробел)</p>
+        <p><input type="text" name="tags" /></p>
+        <p> <input type="submit" name="sub" value="Sent"></p>
+    }
+</div>

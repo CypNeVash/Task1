@@ -19,11 +19,5 @@ namespace Blogs.Model.Assessment
         }
         public User() { }
 
-        public bool Equals(User other) => Id == other.Id;
-        public override bool Equals(object obj) => base.Equals((User)obj);
-
-        public static bool operator ==(User user1, User user2) => user1.Equals(user2);
-        public static bool operator !=(User user1, User user2) => !(user1 == user2);
-
     }
 }

@@ -17,5 +17,11 @@ namespace Blogs.Context
             else return blogsContext;
         }
 
+
+        public static void Dispose()
+        {
+            blogsContext.Dispose();
+            blogsContext = null;
+        }
     }
 }

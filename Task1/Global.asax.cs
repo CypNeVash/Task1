@@ -20,8 +20,7 @@ namespace Task1
         }
         protected void Application_EndRequest( object sender, EventArgs e)
         {
-            SingletonBologsContext.InstanceBlogsContext().SaveChanges();
-            SingletonBologsContext.InstanceBlogsContext().Database.Connection.Close();
+            SingletonBologsContext.Dispose();
         }
     }
 }

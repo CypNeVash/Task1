@@ -12,7 +12,7 @@
     <h2>@ViewBag.Title</h2>
     <h6>Автор: @Model.Author</h6>
     <h6>Время: @Model.PublishDate</h6>
-    <h3 class="Text">@Model.Text</h3>
+    <p class="Text">@Model.Text</p>
     <h6>
         @foreach (var item in Model.Keywords)
         {
@@ -35,6 +35,8 @@
     }
 </div>
 
+@if (User.Identity.IsAuthenticated)
+{
 <div method="post" class="formS">
     @using (@Html.BeginForm())
     {
@@ -47,3 +49,4 @@
             <p><input type="submit" value="Send"></p>
     }
 </div>
+}

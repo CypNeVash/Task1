@@ -31,3 +31,7 @@ h2
     font: x-large;
     font-family: 'Times New Roman', Times, serif;
 }
+
+p.Text {
+    word-break: break-all;
+}

@@ -12,18 +12,32 @@
 <body id="top">
     <header class="page-header">
         <h3>Sites kill your time      <img src="~/Content/icon.png" alt="icon"></h3>
+        <p class="Account">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Войти в систему", "Login", "Account")
+            }
+            else
+            {
+                @User.Identity.Name;<strong> </strong>
+                @Html.ActionLink("Выйти", "LogOff", "Account")
+            }
+        </p>
     </header>
     <div class="main inline">
         <div class="content">@RenderBody()</div>
         <div class="right-block">
             <ul>
-                <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-                <li>@Html.ActionLink("Анкета", "Index", "Worksheet")</li>
-                <li>@Html.ActionLink("Добавить издание", "Index", "AddArticle")</li>
+                <li>@Html.ActionLink("Главная", "Index", "Home", new { Area = "" }, null)</li>
+                <li>@Html.ActionLink("Анкета", "Index", "Worksheet", new { Area = "" }, null)</li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("Добавить издание", "Index", "AddArticle", new { Area = "Admin" }, null)</li>
+                    <li>@Html.ActionLink("List Users", "Index", "AllUsers", new { Area = "Admin" }, null)</li>}
             </ul>
 
 
-            @if (ViewData["Questionnaire"] != null)
+            @if (ViewData["Questionnaire"] != null && User.Identity.IsAuthenticated)
             {
                 <form class="Questionnaire" method="post">
                     @{Blogs.Model.Interview.Interview interview = (Blogs.Model.Interview.Interview)ViewData["Questionnaire"];}

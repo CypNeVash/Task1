@@ -11,7 +11,7 @@ namespace Blogs.Repository.Implement.Assessment
         /// </summary>
         public override void Add(User data)
         {
-            blogsContext.Users.Add(data);
+            blogsContext.AssUsers.Add(data);
 
             Save();
         }
@@ -21,7 +21,7 @@ namespace Blogs.Repository.Implement.Assessment
         /// </summary>
         public override IEnumerable<User> Get()
         {
-            return blogsContext.Users;
+            return blogsContext.AssUsers;
         }
 
         /// <summary>

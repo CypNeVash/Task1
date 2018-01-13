@@ -19,11 +19,5 @@ namespace Blogs.Model.Assessment
             Questions = questions;
         }
         public Survey() { }
-
-        public bool Equals(Survey other) => Id == other.Id;
-        public override bool Equals(object obj) => base.Equals((Survey)obj);
-
-        public static bool operator ==(Survey survey1, Survey survey2) => survey1.Equals(survey2);
-        public static bool operator !=(Survey survey1, Survey survey2) => !(survey1 == survey2);
     }
 }

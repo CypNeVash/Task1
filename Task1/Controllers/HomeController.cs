@@ -7,9 +7,11 @@ using Blogs.Repository.Interface;
 using Blogs.Repository.Implement;
 using Blogs.Model.Interview;
 using Task1.Models.Validation.Article;
+using Task1.Models.Exeption;
 
 namespace Task1.Controllers
 {
+    [ErrorPathExeptionFilter]
     public class HomeController : Controller
     {
         private readonly IDefaultRepository<Blogs.Model.Article.Article> _articleRepository = FactoryRepository.GetRepository<Blogs.Model.Article.Article>();
@@ -26,11 +28,13 @@ namespace Task1.Controllers
             {
                 interview.Options.Where(s => s.Id == new Guid(option)).FirstOrDefault().Count++;
                 ViewData["Statistics"] = new Task1.Models.Validation.Interview.Interview(interview);
+                _interviewRepository.Save();
             }
             else
             {
                 ViewData["Questionnaire"] = interview;
             }
+
             return View(_articleRepository.Get());
         }
     }

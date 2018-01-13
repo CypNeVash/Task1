@@ -121,3 +121,8 @@ textarea
     background: linear-gradient(to bottom, #e7ed80 13%,#e7ed80 13%,#31d829 33%,#e7ed80 64%,#49d32a 89%,#23db4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7ed80', endColorstr='#23db4e',GradientType=0 ); /* IE6-9 */
 }
+
+.Account{
+    text-align:right;
+    margin:auto auto;
+}

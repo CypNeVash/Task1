@@ -3,10 +3,12 @@ using Blogs.Repository.Implement;
 using Blogs.Repository.Interface;
 using System;
 using System.Web.Mvc;
+using Task1.Models.Exeption;
 using Task1.Models.Validation.Article;
 
 namespace Task1.Controllers
 {
+    [ErrorPathExeptionFilter]
     public class GuestsController : Controller
     {
         private readonly IDefaultRepository<Blogs.Model.Article.Article> _articleRepository = FactoryRepository.GetRepository<Blogs.Model.Article.Article>();
@@ -30,10 +32,12 @@ namespace Task1.Controllers
             {
                 if (ModelState.IsValid)
                 {
-
                     article.Reviews.Add(new Blogs.Model.Article.Review().AddReview(review));
                 }
             }
+
+            _articleRepository.Save();
+
             return View(article);
         }
 

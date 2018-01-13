@@ -13,8 +13,9 @@
         background-color:rgba(183, 39, 39, 0.26);
     }
 
-p{
-    text-align:center;
+p {
+    text-align: center;
+    word-break: break-all;
 }
 
 h2
